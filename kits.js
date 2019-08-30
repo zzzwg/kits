@@ -65,3 +65,20 @@ kits.getColor = function() {
     }
     return color;
 }
+
+//从localStorage里面根据指定的键(key)获取一个数组
+kits.getLocalDataArray = function(key) {
+    var jsonStr = localStorage.getItem(key);
+    var arr = JSON.parse(jsonStr);
+    if (!arr) {
+        arr = [];
+    }
+    return arr;
+}
+
+//localStorage里面存数据
+//localStorage只能存字符串
+kits.savelocalDateArray = function(key, arr) {
+    let jsonStr = JSON.stringify(arr);
+    localStorage.setItem(key, jsonStr);
+}
